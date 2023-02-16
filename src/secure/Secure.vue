@@ -14,8 +14,8 @@
 
 <script>
 import {onMounted, ref} from 'vue';
-import Header from "@/components/Header.vue";
-import Menu from "@/components/Menu.vue";
+import Header from "@/secure/components/Header.vue";
+import Menu from "@/secure/components/Menu.vue";
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 export default {
