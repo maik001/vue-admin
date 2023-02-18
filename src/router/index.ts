@@ -5,6 +5,9 @@ import Login from '@/public/Login.vue'
 import Secure from '@/secure/Secure.vue'
 import Dashboard from '@/secure/dashboard/Dashboard.vue'
 import Users from '@/secure/users/Users.vue'
+import UsersCreate from '@/secure/users/UsersCreate.vue'
+import UsersEdit from '@/secure/users/UsersEdit.vue'
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/register',
@@ -36,6 +39,16 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: '/users', 
                 component: Users
+            },
+            {
+            //subrota de '/', criação de usuário
+                path: '/users/create',
+                component: UsersCreate
+            },
+            {
+            //subrota de '/', edição de usuário
+                path: '/users/:id/edit',
+                component: UsersEdit
             }
         ]
     },    

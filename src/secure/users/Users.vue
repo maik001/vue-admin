@@ -1,4 +1,9 @@
 <template>
+        <div class ="d-flex justify-content-between flex-wrap flex-md-nowrap - align-items-center pt-3 pb-2 mb-3 border-bottom"> 
+          <div class="btn-toolbar mb-2 mb-md-0">
+              <router-link to="/users/create" class="btn btn-sm btn-outline-secondary">Add</router-link>
+          </div>
+        </div>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -19,7 +24,7 @@
                   <td>{{ user.role.name }}</td>
                   <td>
                     <div class="btn-group mr-2">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-outline-secondary">Edit</a>
+                        <router-link :to="`/users/${user.id}/edit`" href="javascript:void(0)" class="btn btn-sm btn-outline-secondary">Edit</router-link>
                         <a href="javascript:void(0)" class="btn btn-sm btn-outline-secondary" @click="del(user.id)">Delete</a>
                     </div>
                   </td>
@@ -44,11 +49,12 @@
 <script lang="ts">
 import {ref, onMounted} from 'vue';
 import axios from 'axios';
+import { Entity } from '@/interfaces/entity';
 
 export default {
     name: "Users",
     setup() {
-        const users = ref([]);
+        const users: any = ref([]);
         const page = ref(1);
         const lastPage = ref(0);
 
@@ -84,7 +90,8 @@ export default {
                 await axios.delete(`users/${id}`);
 
                 // filtra os valores dos usuários, retirando o usuário que foi excluido pelo id
-                users.value = users.value.filter((u: {id: number}) => u.id !== id);
+                // utilizo a interface entidade para pegar o id
+                users.value = users.value.filter((e: Entity) => e.id !== id);
             }
         }
 
