@@ -4,6 +4,7 @@
               <router-link to="/users/create" class="btn btn-sm btn-outline-secondary">Add</router-link>
           </div>
         </div>
+        
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
