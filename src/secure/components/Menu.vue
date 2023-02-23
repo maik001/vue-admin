@@ -20,6 +20,12 @@
                 Roles
               </router-link>
             </li>
+            <li class="nav-item">
+              <router-link to="/products" class="nav-link" active-class="active">
+                <span data-feather="home" class="align-text-bottom"></span>
+                Products
+              </router-link>
+            </li>
           </ul>
         </div>
       </nav>

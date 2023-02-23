@@ -5,13 +5,20 @@ import Login from '@/public/Login.vue'
 import Secure from '@/secure/Secure.vue'
 import Dashboard from '@/secure/dashboard/Dashboard.vue'
 
+// crud de usuário
 import Users from '@/secure/users/Users.vue'
 import UsersCreate from '@/secure/users/UsersCreate.vue'
 import UsersEdit from '@/secure/users/UsersEdit.vue'
 
+// crud de perfis
 import Roles from '@/secure/roles/Roles.vue';
 import RolesCreate from '@/secure/roles/RolesCreate.vue';
 import RolesEdit from '@/secure/roles/RolesEdit.vue';
+
+// crud de produtos
+import Products from '@/secure/products/Products.vue';
+import ProductsCreate from '@/secure/products/ProductsCreate.vue';
+import ProductsEdit from '@/secure/products/ProductsEdit.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -69,6 +76,21 @@ const routes: Array<RouteRecordRaw> = [
                 //subrota de '/', edição de perfis
                 path: '/roles/:id/edit',
                 component: RolesEdit
+            },
+            {
+                //subrota de '/', listagem de produtos
+                path: '/products',
+                component: Products
+            },
+            {
+                //subrota de '/', criação de produtos
+                path: '/products/create',
+                component: ProductsCreate
+            },
+            {
+                //subrota de '/', criação de produtos
+                path: '/products/:id/edit',
+                component: ProductsEdit
             },
         ]
     },    

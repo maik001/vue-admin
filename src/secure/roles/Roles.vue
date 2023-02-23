@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- faz um loop for nos usuarios da api-->
+                <!-- faz um loop for nos perfis da api-->
                 <tr v-for="role in roles" :key="role.id">
                     <td>{{ role.id }}</td>
                     <td>{{ role.name }}</td>
@@ -50,10 +50,10 @@ export default {
         // função de deleção
         const del = async (id: number) => {
             if(confirm('Are you sure you want to delete this record?')) {
-                // deleta a role na api pelo id
+                // deleta o perfil na api pelo id
                 await axios.delete(`roles/${id}`);
 
-                // filtra os valores dos usuários, retirando o usuário que foi excluido pelo id
+                // filtra os valores dos perfis, retirando o usuário que foi excluido pelo id
                 // utilizo a interface entidade para pegar o id
                 roles.value = roles.value.filter((e: Entity) => e.id !== id);
             }
