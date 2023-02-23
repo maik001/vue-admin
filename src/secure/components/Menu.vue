@@ -26,6 +26,12 @@
                 Products
               </router-link>
             </li>
+            <li class="nav-item">
+              <router-link to="/orders" class="nav-link" active-class="active">
+                <span data-feather="home" class="align-text-bottom"></span>
+                Orders
+              </router-link>
+            </li>
           </ul>
         </div>
       </nav>

@@ -20,6 +20,10 @@ import Products from '@/secure/products/Products.vue';
 import ProductsCreate from '@/secure/products/ProductsCreate.vue';
 import ProductsEdit from '@/secure/products/ProductsEdit.vue';
 
+// pedidos de compra
+import Orders from '@/secure/orders/Orders.vue';
+import OrderItems from '@/secure/orders/OrderItems.vue';
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/register',
@@ -92,6 +96,14 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/products/:id/edit',
                 component: ProductsEdit
             },
+            {
+                path: '/orders', 
+                component: Orders
+            },
+            {
+                path: '/orders/:id/order_items',
+                component: OrderItems
+            }
         ]
     },    
 ]

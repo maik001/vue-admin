@@ -34,7 +34,7 @@
       </table>
     </div>
         
-    <!-- Funcionalidade de paginação, passando o prop da última pagina e emitindo o evento de mudança de pagina-->
+    <!-- Funcionalidade de paginação, passando o prop da última pagina e recebendo o emit da mudança de página-->
     <Paginator :last-page="lastPage" @page-changed="load($event)"/>
 </template>
 
