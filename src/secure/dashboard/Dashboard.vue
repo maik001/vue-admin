@@ -1,7 +1,8 @@
 import { onMounted } from 'vue';
 <template>
   <h2>Daily Sales</h2>
-  <div id = "chart"></div>
+  <hr>
+    <div id = "chart"></div>
 </template>
 
 <script>

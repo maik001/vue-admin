@@ -24,6 +24,8 @@ import ProductsEdit from '@/secure/products/ProductsEdit.vue';
 import Orders from '@/secure/orders/Orders.vue';
 import OrderItems from '@/secure/orders/OrderItems.vue';
 
+import Profile from '@/secure/profile/Profile.vue';
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/register',
@@ -92,17 +94,23 @@ const routes: Array<RouteRecordRaw> = [
                 component: ProductsCreate
             },
             {
-                //subrota de '/', criação de produtos
+                //subrota de '/', edição de produtos
                 path: '/products/:id/edit',
                 component: ProductsEdit
             },
             {
+                //subrota de '/', listagem de compras
                 path: '/orders', 
                 component: Orders
             },
             {
+                //subrota de '/', items da compra
                 path: '/orders/:id/order_items',
                 component: OrderItems
+            },
+            {
+                path: '/profile',
+                component: Profile
             }
         ]
     },    
