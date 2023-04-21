@@ -12,7 +12,11 @@ export default {
     emits: ['file-uploaded'],
     setup(_, context) {
         const upload = async (files: FileList) => {
-            const file = files.item(0);
+            const file: File | null = files.item(0);
+
+            if (!file) {
+                return;
+            }
 
             const data = new FormData;
             data.append('image', file);

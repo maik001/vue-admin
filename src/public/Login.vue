@@ -27,16 +27,10 @@ export default {
     const router = useRouter();
 
     const submit = async () => {
-      const response = await axios.post('login', {
+      await axios.post('login', {
         email: email.value,
         password: password.value
       });
-
-      // salva o token de autenticação no storage
-      localStorage.setItem('token', response.data.token);
-
-      // informa ao axios o token da sessão atual
-      axios.defaults.headers['Authorization'] = `Bearer ${response.data.token}`;
 
       // redireciona para a rota raiz
       await router.push('/');

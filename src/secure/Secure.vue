@@ -1,23 +1,26 @@
 <template>
-    <Header :user="user"/>
+    <Header />
 
     <div class="container-fluid">
       <div class="row">
         <Menu />
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          <router-view />
+          <router-view v-if="user?.id" />
         </main>
       </div>
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import {onMounted, ref} from 'vue';
 import Header from "@/secure/components/Header.vue";
 import Menu from "@/secure/components/Menu.vue";
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+import { User } from '@/classes/user';
+
 export default {
     name : "Secure",
     components: {
@@ -26,16 +29,28 @@ export default {
     },
     setup() {
       const router = useRouter();
-      const user = ref(null);
+      const user = ref();
+      const store = useStore();
 
       // hook que verifica se os componentes do DOM foram montados
       onMounted(async () => {
         try{
           const response = await axios.get('user');
 
-          // pega as informações do usuário logado
-          user.value = response.data.data;
+          const u: User = response.data.data;
 
+          // dispara o evento de alteração do usuario
+          await store.dispatch('User/setUser', new User(
+            u.id,
+            u.first_name,
+            u.last_name,
+            u.email,
+            u.role,
+            u.permissions,
+          ));
+
+          // pega as informações do usuário logado
+          user.value = u;
         } catch (e) {
           await router.push('/login');
         }
